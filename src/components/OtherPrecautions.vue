@@ -104,7 +104,7 @@ const temp_datas = [
   </div>
   <div class="flex items-center justify-center">
     <div
-      class="rounded-xl border-2 border-[#34559D] bg-white px-4 py-2 md:py-10 lg:px-4 lg:py-12"
+      class="rounded-xl border-2 border-[#34559D] bg-white px-4 py-6 md:p-6 lg:px-4 lg:py-12"
     >
       <div
         class="grid grid-cols-1 gap-x-14 gap-y-3 sm:grid-cols-2 lg:px-24 xl:grid-cols-3"
@@ -112,8 +112,7 @@ const temp_datas = [
         <Other
           v-for="(data, index) in datas.notice"
           :href="data.link"
-          :content_line1="data.title.slice(0, data.splitNumber)"
-          :content_line2="data.title.slice(data.splitNumber)"
+          :title="data.title"
           :class="{
             'justify-self-end ': index % 2 === 0,
           }"

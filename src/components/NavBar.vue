@@ -1,5 +1,6 @@
 <script setup>
 import DesktopNavBar from "./DesktopNav.vue";
+import Nav from "../componentss/Nav.vue";
 import { ref } from "vue";
 
 const isMenuOpen = ref(false);
@@ -7,21 +8,23 @@ const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
 const closeModel = () => {
   isMenuOpen.value = false;
 };
 </script>
+
 <template>
   <div class="overflow-x-hidden">
     <div class="relative w-screen overflow-x-hidden bg-[#FAF7EF]">
       <!-- nav bar -->
       <nav
-        class="fixed inset-x-0 left-0 right-0 top-0 z-50 flex w-full items-center justify-center rounded-b-xl bg-[#FAF7EF] p-4 drop-shadow-md lg:hidden"
+        class="fixed inset-x-0 left-0 right-0 top-0 z-30 flex w-full items-center justify-center rounded-b-xl bg-[#FAF7EF] p-4 drop-shadow-md lg:hidden"
       >
         <a
           href="http://www.fhsh.tp.edu.tw/"
           target="_blank"
-          class="absolute left-8"
+          class="absolute left-8 md:left-8 lg:left-8"
         >
           <img src="../assets/FHSH-logo.png" class="h-6 w-8" />
         </a>
@@ -35,11 +38,12 @@ const closeModel = () => {
             class="absolute right-0 top-0 z-50 h-screen w-screen bg-black bg-opacity-50"
             @click="closeModel"
           >
-            <ul class="absolute right-10 top-10">
+            <!-- <ul class="absolute right-10 top-10">
               <li>
                 <a
-                  :href="timetable"
+                  id="timeline"
                   class="rounded-full bg-white px-6 py-3 font-black text-[#34559D]"
+                  @click="scrollToSection('timeline')"
                   >新生入學時程表</a
                 >
               </li>
@@ -107,7 +111,8 @@ const closeModel = () => {
                   >輔導選課手冊</a
                 >
               </li>
-            </ul>
+            </ul> -->
+            <Nav />
           </div>
         </div>
       </nav>
